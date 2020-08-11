@@ -45,10 +45,19 @@ WHERE DepartureAirportID = 2
 
 SELECT * FROM Tickets INNER JOIN Schedules on Tickets.ScheduleID = Schedules.ID WHERE  ScheduleID = 117  and BookingReference = '12345B'
 
-SELECT * FROM Tickets INNER JOIN Schedules on Tickets.ScheduleID = Schedules.ID WHERE  BookingReference = '12345B'
+SELECT * FROM Tickets INNER JOIN Schedules on Tickets.ScheduleID = Schedules.ID WHERE  ScheduleID = '118'
 
 SELECT * FROM Tickets WHERE  BookingReference = '12345B'
 
 SELECT * FROM Tickets INNER JOIN CabinTypes on Tickets.CabinTypeID = CabinTypes.ID WHERE  BookingReference = '12345B'
 
+SELECT * FROM Amenities INNER JOIN AmenitiesCabinType on Amenities.ID = AmenitiesCabinType.AmenityID 
+INNER JOIN CabinTypes ON CabinTypes.ID = AmenitiesCabinType.CabinTypeID WHERE CabinTypeID = 3 ORDER BY Price 
+
+SELECT * FROM Tickets INNER JOIN CabinTypes ON Tickets.CabinTypeID = CabinTypes.ID WHERE Tickets.ID = '466'
+
 SELECT * FROM [Session5].[dbo].[AmenitiesCabinType]
+SELECT * FROM Amenities
+SELECT * FROM AmenitiesCabinType
+SELECT * FROM AmenitiesTickets
+SELECT * FROM CabinTypes

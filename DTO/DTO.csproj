@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirportsDTO.cs" />
+    <Compile Include="AmenitiDTO.cs" />
+    <Compile Include="AmenitiesCabinTypeDTO.cs" />
     <Compile Include="CabinTypeDTO.cs" />
     <Compile Include="RouteDTO.cs" />
     <Compile Include="ScheduleDTO.cs" />
