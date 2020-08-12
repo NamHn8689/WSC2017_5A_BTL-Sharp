@@ -15,7 +15,7 @@ SELECT * FROM [Session5].[dbo].[Users]
 SELECT * FROM [Session5].[dbo].[Tickets] 
 
 SELECT BookingReference,Count(BookingReference) FROM [Session5].[dbo].[Tickets] GROUP by BookingReference HAVING Count(BookingReference) >1
-SELECT * FROM [Session5].[dbo].[Tickets] WHERE BookingReference = '12345B'
+
 
 SELECT * FROM [Session5].[dbo].[Routes]
 SELECT * FROM [Session5].[dbo].[Airports]
@@ -52,12 +52,16 @@ SELECT * FROM Tickets WHERE  BookingReference = '12345B'
 SELECT * FROM Tickets INNER JOIN CabinTypes on Tickets.CabinTypeID = CabinTypes.ID WHERE  BookingReference = '12345B'
 
 SELECT * FROM Amenities INNER JOIN AmenitiesCabinType on Amenities.ID = AmenitiesCabinType.AmenityID 
-INNER JOIN CabinTypes ON CabinTypes.ID = AmenitiesCabinType.CabinTypeID WHERE CabinTypeID = 3 ORDER BY Price 
+INNER JOIN CabinTypes ON CabinTypes.ID = AmenitiesCabinType.CabinTypeID 
+INNER JOIN Tickets ON Tickets.CabinTypeID = CabinTypes.ID
 
-SELECT * FROM Tickets INNER JOIN CabinTypes ON Tickets.CabinTypeID = CabinTypes.ID WHERE Tickets.ID = '466'
+WHERE AmenitiesCabinType.CabinTypeID = 1  and BookingReference = '12345E' ORDER BY Price 
+
+SELECT * FROM Tickets INNER JOIN CabinTypes ON Tickets.CabinTypeID = CabinTypes.ID WHERE CabinTypes.ID = '3' and Tickets.ID = 9448
 
 SELECT * FROM [Session5].[dbo].[AmenitiesCabinType]
 SELECT * FROM Amenities
 SELECT * FROM AmenitiesCabinType
 SELECT * FROM AmenitiesTickets
 SELECT * FROM CabinTypes
+SELECT * FROM [Session5].[dbo].[Tickets] WHERE BookingReference = '12345B' 

@@ -42,26 +42,26 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbCabinClass = new System.Windows.Forms.Label();
             this.grbAmenities = new System.Windows.Forms.GroupBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.chkbLA = new System.Windows.Forms.CheckBox();
+            this.chkbTR = new System.Windows.Forms.CheckBox();
+            this.chkbEBlanket = new System.Windows.Forms.CheckBox();
+            this.chkbWF250 = new System.Windows.Forms.CheckBox();
+            this.chkb2NSF = new System.Windows.Forms.CheckBox();
+            this.chkbPHR = new System.Windows.Forms.CheckBox();
+            this.chkbFCL = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkbNSF = new System.Windows.Forms.CheckBox();
+            this.chkbLR = new System.Windows.Forms.CheckBox();
+            this.chkbEBag = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbFee = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbSelected = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grbAmenities.SuspendLayout();
             this.SuspendLayout();
@@ -201,138 +201,148 @@
             // 
             // grbAmenities
             // 
-            this.grbAmenities.Controls.Add(this.checkBox13);
-            this.grbAmenities.Controls.Add(this.checkBox12);
-            this.grbAmenities.Controls.Add(this.checkBox11);
-            this.grbAmenities.Controls.Add(this.checkBox10);
-            this.grbAmenities.Controls.Add(this.checkBox8);
-            this.grbAmenities.Controls.Add(this.checkBox4);
-            this.grbAmenities.Controls.Add(this.checkBox7);
+            this.grbAmenities.Controls.Add(this.chkbLA);
+            this.grbAmenities.Controls.Add(this.chkbTR);
+            this.grbAmenities.Controls.Add(this.chkbEBlanket);
+            this.grbAmenities.Controls.Add(this.chkbWF250);
+            this.grbAmenities.Controls.Add(this.chkb2NSF);
+            this.grbAmenities.Controls.Add(this.chkbPHR);
+            this.grbAmenities.Controls.Add(this.chkbFCL);
             this.grbAmenities.Controls.Add(this.checkBox6);
-            this.grbAmenities.Controls.Add(this.checkBox5);
-            this.grbAmenities.Controls.Add(this.checkBox3);
-            this.grbAmenities.Controls.Add(this.checkBox2);
+            this.grbAmenities.Controls.Add(this.chkbNSF);
+            this.grbAmenities.Controls.Add(this.chkbLR);
+            this.grbAmenities.Controls.Add(this.chkbEBag);
             this.grbAmenities.Controls.Add(this.checkBox1);
             this.grbAmenities.Location = new System.Drawing.Point(44, 290);
             this.grbAmenities.Margin = new System.Windows.Forms.Padding(4);
             this.grbAmenities.Name = "grbAmenities";
             this.grbAmenities.Padding = new System.Windows.Forms.Padding(4);
-            this.grbAmenities.Size = new System.Drawing.Size(874, 216);
+            this.grbAmenities.Size = new System.Drawing.Size(874, 200);
             this.grbAmenities.TabIndex = 10;
             this.grbAmenities.TabStop = false;
             this.grbAmenities.Text = "AMONIC Airlines Amenities";
             // 
-            // checkBox13
+            // chkbLA
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(571, 86);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(191, 24);
-            this.checkBox13.TabIndex = 18;
-            this.checkBox13.Text = "Lounge Access ($25)";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.chkbLA.AutoSize = true;
+            this.chkbLA.Location = new System.Drawing.Point(572, 83);
+            this.chkbLA.Name = "chkbLA";
+            this.chkbLA.Size = new System.Drawing.Size(191, 24);
+            this.chkbLA.TabIndex = 18;
+            this.chkbLA.Text = "Lounge Access ($25)";
+            this.chkbLA.UseVisualStyleBackColor = true;
+            this.chkbLA.CheckedChanged += new System.EventHandler(this.chkbLA_CheckedChanged);
             // 
-            // checkBox12
+            // chkbTR
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(341, 86);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(174, 24);
-            this.checkBox12.TabIndex = 17;
-            this.checkBox12.Text = "Tablet Rental ($15)";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.chkbTR.AutoSize = true;
+            this.chkbTR.Location = new System.Drawing.Point(341, 83);
+            this.chkbTR.Name = "chkbTR";
+            this.chkbTR.Size = new System.Drawing.Size(174, 24);
+            this.chkbTR.TabIndex = 17;
+            this.chkbTR.Text = "Tablet Rental ($12)";
+            this.chkbTR.UseVisualStyleBackColor = true;
+            this.chkbTR.CheckedChanged += new System.EventHandler(this.chkbTR_CheckedChanged);
             // 
-            // checkBox11
+            // chkbEBlanket
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(35, 173);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(175, 24);
-            this.checkBox11.TabIndex = 16;
-            this.checkBox11.Text = "Extra Blanket ($10)";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.chkbEBlanket.AutoSize = true;
+            this.chkbEBlanket.Location = new System.Drawing.Point(35, 156);
+            this.chkbEBlanket.Name = "chkbEBlanket";
+            this.chkbEBlanket.Size = new System.Drawing.Size(175, 24);
+            this.chkbEBlanket.TabIndex = 16;
+            this.chkbEBlanket.Text = "Extra Blanket ($10)";
+            this.chkbEBlanket.UseVisualStyleBackColor = true;
+            this.chkbEBlanket.CheckedChanged += new System.EventHandler(this.chkbEBlanket_CheckedChanged);
             // 
-            // checkBox10
+            // chkbWF250
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(571, 48);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(162, 24);
-            this.checkBox10.TabIndex = 15;
-            this.checkBox10.Text = "Wifi 250MB ($25)";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.chkbWF250.AutoSize = true;
+            this.chkbWF250.Location = new System.Drawing.Point(572, 48);
+            this.chkbWF250.Name = "chkbWF250";
+            this.chkbWF250.Size = new System.Drawing.Size(175, 24);
+            this.chkbWF250.TabIndex = 15;
+            this.chkbWF250.Text = "Wi-Fi 250 mb ($25)";
+            this.chkbWF250.UseVisualStyleBackColor = true;
+            this.chkbWF250.CheckedChanged += new System.EventHandler(this.chkbWF250_CheckedChanged);
             // 
-            // checkBox8
+            // chkb2NSF
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(571, 173);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(287, 24);
-            this.checkBox8.TabIndex = 13;
-            this.checkBox8.Text = "Two Neighboring Seats Free ($35)";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.chkb2NSF.AutoSize = true;
+            this.chkb2NSF.Location = new System.Drawing.Point(572, 156);
+            this.chkb2NSF.Name = "chkb2NSF";
+            this.chkb2NSF.Size = new System.Drawing.Size(287, 24);
+            this.chkb2NSF.TabIndex = 13;
+            this.chkb2NSF.Text = "Two Neighboring Seats Free ($35)";
+            this.chkb2NSF.UseVisualStyleBackColor = true;
+            this.chkb2NSF.CheckedChanged += new System.EventHandler(this.chkb2NSF_CheckedChanged);
             // 
-            // checkBox4
+            // chkbPHR
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(35, 130);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(285, 24);
-            this.checkBox4.TabIndex = 12;
-            this.checkBox4.Text = "Premium Headphones Rental ($5)";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chkbPHR.AutoSize = true;
+            this.chkbPHR.Location = new System.Drawing.Point(35, 120);
+            this.chkbPHR.Name = "chkbPHR";
+            this.chkbPHR.Size = new System.Drawing.Size(285, 24);
+            this.chkbPHR.TabIndex = 12;
+            this.chkbPHR.Text = "Premium Headphones Rental ($5)";
+            this.chkbPHR.UseVisualStyleBackColor = true;
+            this.chkbPHR.CheckedChanged += new System.EventHandler(this.chkbPHR_CheckedChanged);
             // 
-            // checkBox7
+            // chkbFCL
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(341, 48);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(215, 24);
-            this.checkBox7.TabIndex = 11;
-            this.checkBox7.Text = "Fast Checkin Lane ($10)";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chkbFCL.AutoSize = true;
+            this.chkbFCL.Location = new System.Drawing.Point(341, 48);
+            this.chkbFCL.Name = "chkbFCL";
+            this.chkbFCL.Size = new System.Drawing.Size(215, 24);
+            this.chkbFCL.TabIndex = 11;
+            this.chkbFCL.Text = "Fast Checkin Lane ($10)";
+            this.chkbFCL.UseVisualStyleBackColor = true;
+            this.chkbFCL.CheckedChanged += new System.EventHandler(this.chkbFCL_CheckedChanged);
             // 
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.Checked = true;
             this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Location = new System.Drawing.Point(37, 86);
+            this.checkBox6.Location = new System.Drawing.Point(37, 83);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(160, 24);
+            this.checkBox6.Size = new System.Drawing.Size(173, 24);
             this.checkBox6.TabIndex = 10;
-            this.checkBox6.Text = "Wifi 50MB (Free)";
+            this.checkBox6.Text = "Wi-Fi 50 mb (Free)";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chkbNSF
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(571, 130);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(187, 24);
-            this.checkBox5.TabIndex = 9;
-            this.checkBox5.Text = "Next Seat Free ($30)";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chkbNSF.AutoSize = true;
+            this.chkbNSF.Location = new System.Drawing.Point(572, 120);
+            this.chkbNSF.Name = "chkbNSF";
+            this.chkbNSF.Size = new System.Drawing.Size(187, 24);
+            this.chkbNSF.TabIndex = 9;
+            this.chkbNSF.Text = "Next Seat Free ($30)";
+            this.chkbNSF.UseVisualStyleBackColor = true;
+            this.chkbNSF.CheckedChanged += new System.EventHandler(this.chkbNSF_CheckedChanged);
             // 
-            // checkBox3
+            // chkbLR
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(341, 130);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(179, 24);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "Laptop Rental ($15)";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkbLR.AutoSize = true;
+            this.chkbLR.Location = new System.Drawing.Point(341, 120);
+            this.chkbLR.Name = "chkbLR";
+            this.chkbLR.Size = new System.Drawing.Size(179, 24);
+            this.chkbLR.TabIndex = 7;
+            this.chkbLR.Text = "Laptop Rental ($15)";
+            this.chkbLR.UseVisualStyleBackColor = true;
+            this.chkbLR.CheckedChanged += new System.EventHandler(this.chkbLR_CheckedChanged);
             // 
-            // checkBox2
+            // chkbEBag
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(341, 173);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(149, 24);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Extra Bag ($15)";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkbEBag.AutoSize = true;
+            this.chkbEBag.Location = new System.Drawing.Point(341, 156);
+            this.chkbEBag.Name = "chkbEBag";
+            this.chkbEBag.Size = new System.Drawing.Size(149, 24);
+            this.chkbEBag.TabIndex = 6;
+            this.chkbEBag.Text = "Extra Bag ($15)";
+            this.chkbEBag.UseVisualStyleBackColor = true;
+            this.chkbEBag.CheckedChanged += new System.EventHandler(this.chkbEBag_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -346,98 +356,99 @@
             this.checkBox1.Text = "Soft Drinks (Free)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // lbFee
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(339, 579);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "XXXXX";
+            this.lbFee.AutoSize = true;
+            this.lbFee.Location = new System.Drawing.Point(339, 554);
+            this.lbFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbFee.Name = "lbFee";
+            this.lbFee.Size = new System.Drawing.Size(75, 20);
+            this.lbFee.TabIndex = 14;
+            this.lbFee.Text = "XXXXXX";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(173, 579);
+            this.label10.Location = new System.Drawing.Point(173, 554);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(135, 20);
             this.label10.TabIndex = 13;
             this.label10.Text = "Duties and texes";
             // 
-            // label11
+            // lbSelected
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(339, 532);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 20);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "XXXXXX";
+            this.lbSelected.AutoSize = true;
+            this.lbSelected.Location = new System.Drawing.Point(339, 507);
+            this.lbSelected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSelected.Name = "lbSelected";
+            this.lbSelected.Size = new System.Drawing.Size(75, 20);
+            this.lbSelected.TabIndex = 12;
+            this.lbSelected.Text = "XXXXXX";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(175, 532);
+            this.label12.Location = new System.Drawing.Point(175, 507);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(118, 20);
             this.label12.TabIndex = 11;
             this.label12.Text = "Items selected";
             // 
-            // label13
+            // lbTotal
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(339, 623);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 20);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "XXXXX";
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Location = new System.Drawing.Point(339, 598);
+            this.lbTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(75, 20);
+            this.lbTotal.TabIndex = 16;
+            this.lbTotal.Text = "XXXXXX";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(173, 623);
+            this.label14.Location = new System.Drawing.Point(173, 598);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(113, 20);
             this.label14.TabIndex = 15;
             this.label14.Text = "Total payable:";
             // 
-            // button3
+            // btnExit
             // 
-            this.button3.Location = new System.Drawing.Point(583, 600);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(213, 45);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(583, 575);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(213, 45);
+            this.btnExit.TabIndex = 17;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button4
+            // btnSave
             // 
-            this.button4.Location = new System.Drawing.Point(583, 532);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(213, 45);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Save and Confirm";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(583, 507);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(213, 45);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Save and Confirm";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 677);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label13);
+            this.ClientSize = new System.Drawing.Size(960, 649);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbFee);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lbSelected);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.grbAmenities);
             this.Controls.Add(this.lbCabinClass);
@@ -479,27 +490,27 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbCabinClass;
         private System.Windows.Forms.GroupBox grbAmenities;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox chkbFCL;
         private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chkbNSF;
+        private System.Windows.Forms.CheckBox chkbLR;
+        private System.Windows.Forms.CheckBox chkbEBag;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbFee;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbSelected;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbx;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.CheckBox chkbEBlanket;
+        private System.Windows.Forms.CheckBox chkbWF250;
+        private System.Windows.Forms.CheckBox chkb2NSF;
+        private System.Windows.Forms.CheckBox chkbPHR;
+        private System.Windows.Forms.CheckBox chkbTR;
+        private System.Windows.Forms.CheckBox chkbLA;
     }
 }
 

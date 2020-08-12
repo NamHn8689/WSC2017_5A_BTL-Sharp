@@ -34,5 +34,19 @@ namespace DAO
                 return null;
             }
         }
+        public DataTable GetAmenitiesTableByCabinTypeID(string cabinTypeID) //cabintype get by Ticket
+        {
+            try
+            {
+                string query = "exec proc_GetAmenitiesByCabinTypeID " + cabinTypeID;
+                DataTable dt = base.GetTable(query);
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
