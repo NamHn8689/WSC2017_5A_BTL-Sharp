@@ -45,6 +45,7 @@
     <Compile Include="AmenitiDTO.cs" />
     <Compile Include="AmenitiesCabinTypeDTO.cs" />
     <Compile Include="CabinTypeDTO.cs" />
+    <Compile Include="AmenitiesTicketsDTO.cs" />
     <Compile Include="RouteDTO.cs" />
     <Compile Include="ScheduleDTO.cs" />
     <Compile Include="FlightDTO.cs" />

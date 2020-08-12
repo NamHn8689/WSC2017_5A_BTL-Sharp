@@ -71,7 +71,7 @@
             this.txtBookRef.Location = new System.Drawing.Point(208, 24);
             this.txtBookRef.Margin = new System.Windows.Forms.Padding(4);
             this.txtBookRef.Name = "txtBookRef";
-            this.txtBookRef.Size = new System.Drawing.Size(407, 27);
+            this.txtBookRef.Size = new System.Drawing.Size(407, 23);
             this.txtBookRef.TabIndex = 0;
             // 
             // label1
@@ -80,7 +80,7 @@
             this.label1.Location = new System.Drawing.Point(38, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.Size = new System.Drawing.Size(131, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Booking referencce";
             // 
@@ -104,7 +104,7 @@
             this.cbx.FormattingEnabled = true;
             this.cbx.Location = new System.Drawing.Point(236, 46);
             this.cbx.Name = "cbx";
-            this.cbx.Size = new System.Drawing.Size(411, 28);
+            this.cbx.Size = new System.Drawing.Size(411, 25);
             this.cbx.TabIndex = 5;
             // 
             // btnShow
@@ -124,7 +124,7 @@
             this.label2.Location = new System.Drawing.Point(67, 54);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 20);
+            this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Choose your flight";
             // 
@@ -145,7 +145,7 @@
             this.label3.Location = new System.Drawing.Point(40, 210);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 20);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Full name:";
             // 
@@ -155,7 +155,7 @@
             this.lbName.Location = new System.Drawing.Point(135, 210);
             this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(75, 20);
+            this.lbName.Size = new System.Drawing.Size(62, 17);
             this.lbName.TabIndex = 5;
             this.lbName.Text = "XXXXXX";
             // 
@@ -165,7 +165,7 @@
             this.label5.Location = new System.Drawing.Point(480, 210);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 20);
+            this.label5.Size = new System.Drawing.Size(120, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "Passport number:";
             // 
@@ -175,7 +175,7 @@
             this.lbPassport.Location = new System.Drawing.Point(630, 210);
             this.lbPassport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPassport.Name = "lbPassport";
-            this.lbPassport.Size = new System.Drawing.Size(75, 20);
+            this.lbPassport.Size = new System.Drawing.Size(62, 17);
             this.lbPassport.TabIndex = 7;
             this.lbPassport.Text = "XXXXXX";
             // 
@@ -185,7 +185,7 @@
             this.label7.Location = new System.Drawing.Point(40, 252);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 20);
+            this.label7.Size = new System.Drawing.Size(130, 17);
             this.label7.TabIndex = 8;
             this.label7.Text = "Your cabin class is:";
             // 
@@ -195,7 +195,7 @@
             this.lbCabinClass.Location = new System.Drawing.Point(204, 252);
             this.lbCabinClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCabinClass.Name = "lbCabinClass";
-            this.lbCabinClass.Size = new System.Drawing.Size(75, 20);
+            this.lbCabinClass.Size = new System.Drawing.Size(62, 17);
             this.lbCabinClass.TabIndex = 9;
             this.lbCabinClass.Text = "XXXXXX";
             // 
@@ -227,7 +227,7 @@
             this.chkbLA.AutoSize = true;
             this.chkbLA.Location = new System.Drawing.Point(572, 83);
             this.chkbLA.Name = "chkbLA";
-            this.chkbLA.Size = new System.Drawing.Size(191, 24);
+            this.chkbLA.Size = new System.Drawing.Size(162, 21);
             this.chkbLA.TabIndex = 18;
             this.chkbLA.Text = "Lounge Access ($25)";
             this.chkbLA.UseVisualStyleBackColor = true;
@@ -238,7 +238,7 @@
             this.chkbTR.AutoSize = true;
             this.chkbTR.Location = new System.Drawing.Point(341, 83);
             this.chkbTR.Name = "chkbTR";
-            this.chkbTR.Size = new System.Drawing.Size(174, 24);
+            this.chkbTR.Size = new System.Drawing.Size(150, 21);
             this.chkbTR.TabIndex = 17;
             this.chkbTR.Text = "Tablet Rental ($12)";
             this.chkbTR.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             this.chkbEBlanket.AutoSize = true;
             this.chkbEBlanket.Location = new System.Drawing.Point(35, 156);
             this.chkbEBlanket.Name = "chkbEBlanket";
-            this.chkbEBlanket.Size = new System.Drawing.Size(175, 24);
+            this.chkbEBlanket.Size = new System.Drawing.Size(148, 21);
             this.chkbEBlanket.TabIndex = 16;
             this.chkbEBlanket.Text = "Extra Blanket ($10)";
             this.chkbEBlanket.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             this.chkbWF250.AutoSize = true;
             this.chkbWF250.Location = new System.Drawing.Point(572, 48);
             this.chkbWF250.Name = "chkbWF250";
-            this.chkbWF250.Size = new System.Drawing.Size(175, 24);
+            this.chkbWF250.Size = new System.Drawing.Size(148, 21);
             this.chkbWF250.TabIndex = 15;
             this.chkbWF250.Text = "Wi-Fi 250 mb ($25)";
             this.chkbWF250.UseVisualStyleBackColor = true;
@@ -271,7 +271,7 @@
             this.chkb2NSF.AutoSize = true;
             this.chkb2NSF.Location = new System.Drawing.Point(572, 156);
             this.chkb2NSF.Name = "chkb2NSF";
-            this.chkb2NSF.Size = new System.Drawing.Size(287, 24);
+            this.chkb2NSF.Size = new System.Drawing.Size(245, 21);
             this.chkb2NSF.TabIndex = 13;
             this.chkb2NSF.Text = "Two Neighboring Seats Free ($35)";
             this.chkb2NSF.UseVisualStyleBackColor = true;
@@ -282,7 +282,7 @@
             this.chkbPHR.AutoSize = true;
             this.chkbPHR.Location = new System.Drawing.Point(35, 120);
             this.chkbPHR.Name = "chkbPHR";
-            this.chkbPHR.Size = new System.Drawing.Size(285, 24);
+            this.chkbPHR.Size = new System.Drawing.Size(242, 21);
             this.chkbPHR.TabIndex = 12;
             this.chkbPHR.Text = "Premium Headphones Rental ($5)";
             this.chkbPHR.UseVisualStyleBackColor = true;
@@ -293,7 +293,7 @@
             this.chkbFCL.AutoSize = true;
             this.chkbFCL.Location = new System.Drawing.Point(341, 48);
             this.chkbFCL.Name = "chkbFCL";
-            this.chkbFCL.Size = new System.Drawing.Size(215, 24);
+            this.chkbFCL.Size = new System.Drawing.Size(182, 21);
             this.chkbFCL.TabIndex = 11;
             this.chkbFCL.Text = "Fast Checkin Lane ($10)";
             this.chkbFCL.UseVisualStyleBackColor = true;
@@ -306,7 +306,7 @@
             this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox6.Location = new System.Drawing.Point(37, 83);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(173, 24);
+            this.checkBox6.Size = new System.Drawing.Size(145, 21);
             this.checkBox6.TabIndex = 10;
             this.checkBox6.Text = "Wi-Fi 50 mb (Free)";
             this.checkBox6.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@
             this.chkbNSF.AutoSize = true;
             this.chkbNSF.Location = new System.Drawing.Point(572, 120);
             this.chkbNSF.Name = "chkbNSF";
-            this.chkbNSF.Size = new System.Drawing.Size(187, 24);
+            this.chkbNSF.Size = new System.Drawing.Size(159, 21);
             this.chkbNSF.TabIndex = 9;
             this.chkbNSF.Text = "Next Seat Free ($30)";
             this.chkbNSF.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             this.chkbLR.AutoSize = true;
             this.chkbLR.Location = new System.Drawing.Point(341, 120);
             this.chkbLR.Name = "chkbLR";
-            this.chkbLR.Size = new System.Drawing.Size(179, 24);
+            this.chkbLR.Size = new System.Drawing.Size(154, 21);
             this.chkbLR.TabIndex = 7;
             this.chkbLR.Text = "Laptop Rental ($15)";
             this.chkbLR.UseVisualStyleBackColor = true;
@@ -338,7 +338,7 @@
             this.chkbEBag.AutoSize = true;
             this.chkbEBag.Location = new System.Drawing.Point(341, 156);
             this.chkbEBag.Name = "chkbEBag";
-            this.chkbEBag.Size = new System.Drawing.Size(149, 24);
+            this.chkbEBag.Size = new System.Drawing.Size(126, 21);
             this.chkbEBag.TabIndex = 6;
             this.chkbEBag.Text = "Extra Bag ($15)";
             this.chkbEBag.UseVisualStyleBackColor = true;
@@ -351,7 +351,7 @@
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(37, 48);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(166, 24);
+            this.checkBox1.Size = new System.Drawing.Size(139, 21);
             this.checkBox1.TabIndex = 5;
             this.checkBox1.Text = "Soft Drinks (Free)";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -362,7 +362,7 @@
             this.lbFee.Location = new System.Drawing.Point(339, 554);
             this.lbFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFee.Name = "lbFee";
-            this.lbFee.Size = new System.Drawing.Size(75, 20);
+            this.lbFee.Size = new System.Drawing.Size(62, 17);
             this.lbFee.TabIndex = 14;
             this.lbFee.Text = "XXXXXX";
             // 
@@ -372,7 +372,7 @@
             this.label10.Location = new System.Drawing.Point(173, 554);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(135, 20);
+            this.label10.Size = new System.Drawing.Size(113, 17);
             this.label10.TabIndex = 13;
             this.label10.Text = "Duties and texes";
             // 
@@ -382,7 +382,7 @@
             this.lbSelected.Location = new System.Drawing.Point(339, 507);
             this.lbSelected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSelected.Name = "lbSelected";
-            this.lbSelected.Size = new System.Drawing.Size(75, 20);
+            this.lbSelected.Size = new System.Drawing.Size(62, 17);
             this.lbSelected.TabIndex = 12;
             this.lbSelected.Text = "XXXXXX";
             // 
@@ -392,7 +392,7 @@
             this.label12.Location = new System.Drawing.Point(175, 507);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 20);
+            this.label12.Size = new System.Drawing.Size(98, 17);
             this.label12.TabIndex = 11;
             this.label12.Text = "Items selected";
             // 
@@ -402,7 +402,7 @@
             this.lbTotal.Location = new System.Drawing.Point(339, 598);
             this.lbTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(75, 20);
+            this.lbTotal.Size = new System.Drawing.Size(62, 17);
             this.lbTotal.TabIndex = 16;
             this.lbTotal.Text = "XXXXXX";
             // 
@@ -412,7 +412,7 @@
             this.label14.Location = new System.Drawing.Point(173, 598);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(113, 20);
+            this.label14.Size = new System.Drawing.Size(98, 17);
             this.label14.TabIndex = 15;
             this.label14.Text = "Total payable:";
             // 
@@ -436,10 +436,11 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save and Confirm";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 649);
             this.Controls.Add(this.btnSave);

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmenitiesTicketsDAO.cs" />
     <Compile Include="CabinTypeDAO.cs" />
     <Compile Include="AmenitiDAO.cs" />
     <Compile Include="AmenitiesCabinTypeDAO.cs" />

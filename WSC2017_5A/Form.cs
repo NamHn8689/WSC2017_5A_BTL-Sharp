@@ -23,7 +23,7 @@ namespace WSC2017_5A
         private void form_Load(object sender, EventArgs e)
         {
             txtBookRef.Text = "12345B";
-            //grbAmenities.Enabled = false;
+            grbAmenities.Enabled = false;
             itemChoose = 0;
         }
         private void btnOK_Click(object sender, EventArgs e)
@@ -92,7 +92,6 @@ namespace WSC2017_5A
 
                     lsCheckBox.Add(chkb);
                 }
-                //chkb.Checked = false;
             }
             for (int i = 0; i < lsAmenities.Count; i++)
             {
@@ -117,14 +116,6 @@ namespace WSC2017_5A
 
         private void CheckThenShow()
         {
-            //string ticketId = cbx.SelectedValue.ToString();
-
-            //TicketBUS ticketBUS = new TicketBUS();
-
-            //TicketDTO ticket = ticketBUS.GetTicketByID(ticketId);
-
-            //AmenitiBUS amenitiBUS = new AmenitiBUS();
-            //List<AmenitiDTO> lsAmenities = amenitiBUS.GetAmenitiesListByCabinTypeID(ticket.CabinTypeID.ToString());
 
             itemChoose = 0;
             setValue(itemChoose);
@@ -148,11 +139,73 @@ namespace WSC2017_5A
                     setValue(itemChoose);
                 }
             }
-            //grbAmenities.Controls
+
         }
 
         static decimal itemChoose;
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string ticketId = cbx.SelectedValue.ToString();
+            AmenitiesTicketsBUS amenitiesTicketsBUS = new AmenitiesTicketsBUS();
 
+            amenitiesTicketsBUS.DeleteRowsByTicketId(ticketId);
+            foreach (Control control in grbAmenities.Controls)
+            {
+                if (control is CheckBox)
+                {
+                    CheckBox chkb = (CheckBox)control;
+                    if (chkb.Checked == true)
+                    {
+                        if (getAmenityIDByChkbText(chkb.Text) == 7 || getAmenityIDByChkbText(chkb.Text) == 11)
+                            amenitiesTicketsBUS.AddARow(
+                                new AmenitiesTicketsDTO(
+                                    getAmenityIDByChkbText(chkb.Text),
+                                    int.Parse(ticketId),
+                                    0
+                                ));
+                        else
+                            amenitiesTicketsBUS.AddARow(
+                                new AmenitiesTicketsDTO(
+                                    getAmenityIDByChkbText(chkb.Text),
+                                    int.Parse(ticketId),
+                                    getPrice(chkb.Text)
+                                ));
+
+                    }
+                }
+                //chkb.Checked = false;
+            }
+        }
+        public int getAmenityIDByChkbText(string name)
+        {
+
+            switch (name)
+            {
+                case "Extra Blanket ($10)":
+                    return 1;
+                case "Next Seat Free ($30)":
+                    return 2;
+                case "Two Neighboring Seats Free ($35)":
+                    return 3;
+                case "Tablet Rental ($12)":
+                    return 4;
+                case "Laptop Rental ($15)":
+                    return 5;
+                case "Lounge Access ($25)":
+                    return 6;
+                case "Soft Drinks (Free)":
+                    return 7;
+                case "Premium Headphones Rental ($5)":
+                    return 8;
+                case "Extra Bag ($15)":
+                    return 9;
+                case "Fast Checkin Lane ($10)":
+                    return 10;
+                case "Wi-Fi 50 mb (Free)":
+                    return 11;
+            }
+            return 12;
+        }
         public decimal getPrice(string text)
         {
             string[] texts = text.Split('$');
@@ -218,14 +271,13 @@ namespace WSC2017_5A
         private void btnExit_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Environment.Exit(0);
             }
 
         }
-
 
 
     }

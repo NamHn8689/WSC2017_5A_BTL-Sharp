@@ -10,7 +10,7 @@ namespace DAO
 {
     public class DBConnect
     {
-        // class chua ket noi toi db, cac class khac se ke thua lai
+        // class chua ket noi toi db, cac class khac se ke thu lai
         private SqlConnection GetConnection()
         {
             return new SqlConnection(@"Data Source=localhost;Initial Catalog=Session5;Integrated Security=True");
