@@ -22,9 +22,14 @@ namespace WSC2017_5A
 
         private void form_Load(object sender, EventArgs e)
         {
-            txtBookRef.Text = "12345B";
             grbAmenities.Enabled = false;
             itemChoose = 0;
+            dgvReport.RowHeadersVisible = false;
+
+            //txtBookRef.Text = "12345B";
+            //txtFlNumber.Text = "49";
+            //dateTimePickerFrom.Text = "2018-09-04";
+            //dateTimePickerTo.Text = "2018-11-04";
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -36,24 +41,32 @@ namespace WSC2017_5A
             DataTable items = new DataTable();
             items.Columns.Add("FlightDetail", typeof(string));
             items.Columns.Add("TicketID", typeof(string));
-
-            foreach (FlightDTO flight in lsFlight)
+            if (lsFlight.Count == 0)
             {
-                items.Rows.Add(
-                    string.Format(
-                        "{0}, {1}-{2}, {3}, {4}",
-                        flight.FlightNumber,
-                        flight.DepartureIATACode,
-                        flight.ArrivalIATACode,
-                        flight.Date,
-                        flight.Time
-                    ),
-                    flight.TicketID
-                );
+                btnShow.Enabled = false;
+                MessageBox.Show("We can't find anything" + Environment.NewLine + "Please,check it again", "False", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            cbx.DataSource = items;
-            cbx.DisplayMember = "FlightDetail";
-            cbx.ValueMember = "TicketID";
+            else
+            {
+                btnShow.Enabled = true;
+                foreach (FlightDTO flight in lsFlight)
+                {
+                    items.Rows.Add(
+                        string.Format(
+                            "{0}, {1}-{2}, {3}, {4}",
+                            flight.FlightNumber,
+                            flight.DepartureIATACode,
+                            flight.ArrivalIATACode,
+                            flight.Date,
+                            flight.Time
+                        ),
+                        flight.TicketID
+                    );
+                }
+                cbx.DataSource = items;
+                cbx.DisplayMember = "FlightDetail";
+                cbx.ValueMember = "TicketID";
+            }
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -82,6 +95,8 @@ namespace WSC2017_5A
             List<AmenitiesTicketsDTO> lsAmenitiesTicket = amenitiesTicketsBUS.GetListAmenitiesTicketsByTicketID(ticketId);
 
             List<CheckBox> lsCheckBox = new List<CheckBox>();
+
+            //
 
             foreach (Control control in grbAmenities.Controls)
             {
@@ -115,17 +130,26 @@ namespace WSC2017_5A
                     }
                 }
             }
+
             //load amenities da tich tu db
+            paid = 0;
             for (int i = 0; i < lsAmenitiesTicket.Count; i++)
             {
                 for (int j = 0; j < lsCheckBox.Count; j++)
                 {
                     if (lsAmenitiesTicket[i].AmenityID == getAmenityIDByChkbText(lsCheckBox[j].Text))
+                    {
                         lsCheckBox[j].Checked = true;
+                        paid += lsAmenitiesTicket[i].Price;
+                        break;
+                    }
                 }
             }
+            //set lbPaid
+            paid = paid * 105 / 100;
+            lbPaid.Text = paid.ToString();
 
-
+            CheckThenShow();
         }
 
         private void CheckThenShow()
@@ -143,7 +167,6 @@ namespace WSC2017_5A
                     if (chkb.Enabled == true)
                         lsCheckBox.Add(chkb);
                 }
-                //chkb.Checked = false;
             }
             for (int i = 0; i < lsCheckBox.Count; i++)
             {
@@ -156,37 +179,46 @@ namespace WSC2017_5A
 
         }
 
+
         static decimal itemChoose;
+        static decimal paid;
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string ticketId = cbx.SelectedValue.ToString();
-            AmenitiesTicketsBUS amenitiesTicketsBUS = new AmenitiesTicketsBUS();
-
-            amenitiesTicketsBUS.DeleteRowsByTicketId(ticketId);
-            foreach (Control control in grbAmenities.Controls)
+            DialogResult result = MessageBox.Show("Are you sure?", "Aler", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                if (control is CheckBox)
+
+                string ticketId = cbx.SelectedValue.ToString();
+                AmenitiesTicketsBUS amenitiesTicketsBUS = new AmenitiesTicketsBUS();
+
+                amenitiesTicketsBUS.DeleteRowsByTicketId(ticketId);
+                foreach (Control control in grbAmenities.Controls)
                 {
-                    CheckBox chkb = (CheckBox)control;
-                    if (chkb.Checked == true)
+                    if (control is CheckBox)
                     {
-                        if (getAmenityIDByChkbText(chkb.Text) == 7 || getAmenityIDByChkbText(chkb.Text) == 11)
-                            amenitiesTicketsBUS.AddARow(
-                                new AmenitiesTicketsDTO(
-                                    getAmenityIDByChkbText(chkb.Text),
-                                    int.Parse(ticketId),
-                                    0
-                                ));
-                        else
-                            amenitiesTicketsBUS.AddARow(
-                                new AmenitiesTicketsDTO(
-                                    getAmenityIDByChkbText(chkb.Text),
-                                    int.Parse(ticketId),
-                                    getPrice(chkb.Text)
-                                ));
+                        CheckBox chkb = (CheckBox)control;
+                        if (chkb.Checked == true)
+                        {
+                            if (getAmenityIDByChkbText(chkb.Text) == 7 || getAmenityIDByChkbText(chkb.Text) == 11)
+                                amenitiesTicketsBUS.AddARow(
+                                    new AmenitiesTicketsDTO(
+                                        getAmenityIDByChkbText(chkb.Text),
+                                        int.Parse(ticketId),
+                                        0
+                                    ));
+                            else
+                                amenitiesTicketsBUS.AddARow(
+                                    new AmenitiesTicketsDTO(
+                                        getAmenityIDByChkbText(chkb.Text),
+                                        int.Parse(ticketId),
+                                        getPrice(chkb.Text)
+                                    ));
+                        }
                     }
                 }
-                //chkb.Checked = false;
+                MessageBox.Show("Data changed", "Aler", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnShow_Click(sender, e);
             }
         }
         public int getAmenityIDByChkbText(string name)
@@ -225,9 +257,9 @@ namespace WSC2017_5A
         }
         public void setValue(decimal itemChoose)
         {
-            lbSelected.Text = "$" + itemChoose.ToString();
-            lbFee.Text = "$" + (itemChoose * 5 / 100).ToString();
-            lbTotal.Text = "$" + (itemChoose * 105 / 100).ToString();
+            lbSelected.Text = itemChoose.ToString();
+            lbFee.Text = (itemChoose * 5 / 100).ToString();
+            lbTotal.Text = (itemChoose * 105 / 100 - decimal.Parse(lbPaid.Text)).ToString();
         }
 
         private void chkbPHR_CheckedChanged(object sender, EventArgs e)
@@ -284,6 +316,26 @@ namespace WSC2017_5A
             DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
                 Environment.Exit(0);
+        }
+
+        private void btnGetReport_Click(object sender, EventArgs e)
+        {
+            ReportBUS reportBUS = new ReportBUS();
+            
+            try
+            {
+                dgvReport.DataSource = reportBUS.GetReportTableWithProc(
+                    new ReportDTO(
+                        int.Parse(txtFlNumber.Text),
+                        dateTimePickerFrom.Text,
+                        dateTimePickerTo.Text
+                        )
+                    );
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Try again", "False", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

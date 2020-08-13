@@ -12,7 +12,7 @@ SELECT * FROM [Session5].[dbo].[Roles]
 SELECT * FROM [Session5].[dbo].[Users]
 
 
-SELECT * FROM [Session5].[dbo].[Tickets] 
+SELECT * FROM [Session5].[dbo].[Tickets] WHERE CabinTypeID = 2
 
 SELECT BookingReference,Count(BookingReference) FROM [Session5].[dbo].[Tickets] GROUP by BookingReference HAVING Count(BookingReference) >1
 
@@ -57,7 +57,7 @@ INNER JOIN Tickets ON Tickets.CabinTypeID = CabinTypes.ID
 
 WHERE AmenitiesCabinType.CabinTypeID = 1  and BookingReference = '12345B' ORDER BY Price 
 
-SELECT * FROM Tickets INNER JOIN CabinTypes ON Tickets.CabinTypeID = CabinTypes.ID WHERE CabinTypes.ID = '3' and Tickets.ID = 9448
+
 
 SELECT * FROM [Session5].[dbo].[AmenitiesCabinType]
 SELECT * FROM Amenities ORDER BY Price 
@@ -72,12 +72,15 @@ INSERT INTO [dbo].[AmenitiesTickets] VALUES (6,9448,25)
 
 DELETE AmenitiesTickets WHERE TicketID = 9448
 TRUNCATE TABLE AmenitiesTickets
+
+SELECT * FROM Tickets INNER JOIN AmenitiesTickets ON Tickets.ID = AmenitiesTickets.TicketID INNER JOIN CabinTypes on Tickets.CabinTypeID = CabinTypes.ID
+SELECT CabinTypes.Name,COUNT(TicketID) FROM Tickets INNER JOIN AmenitiesTickets ON Tickets.ID = AmenitiesTickets.TicketID INNER JOIN CabinTypes on Tickets.CabinTypeID = CabinTypes.ID GROUP by CabinTypes.Name
 1 10
 4 12
 5 15
 6 25
 7 0
 8 5
-9   15
+9 15
 12 25
 GO

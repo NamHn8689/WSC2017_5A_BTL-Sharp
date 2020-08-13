@@ -50,6 +50,7 @@
     <Compile Include="AmenitiDAO.cs" />
     <Compile Include="AmenitiesCabinTypeDAO.cs" />
     <Compile Include="DBConnect.cs" />
+    <Compile Include="ReportDAO.cs" />
     <Compile Include="ScheduleDAO.cs" />
     <Compile Include="TicketDAO.cs" />
     <Compile Include="FlightDAO.cs" />
