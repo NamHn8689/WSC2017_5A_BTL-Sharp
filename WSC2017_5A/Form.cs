@@ -76,8 +76,10 @@ namespace WSC2017_5A
             AmenitiBUS amenitiBUS = new AmenitiBUS();
             List<AmenitiDTO> lsAmenities = amenitiBUS.GetAmenitiesListByCabinTypeID(ticket.CabinTypeID.ToString());
 
+            AmenitiesTicketsBUS amenitiesTicketsBUS = new AmenitiesTicketsBUS();
 
-            //txtBookRef.Text = lsAmenities[0].Service + " ($" + Decimal.ToInt32(lsAmenities[0].Price) + ")";
+            //list amnities da mua tai phien lam viec truoc load tu db
+            List<AmenitiesTicketsDTO> lsAmenitiesTicket = amenitiesTicketsBUS.GetListAmenitiesTicketsByTicketID(ticketId);
 
             List<CheckBox> lsCheckBox = new List<CheckBox>();
 
@@ -93,6 +95,7 @@ namespace WSC2017_5A
                     lsCheckBox.Add(chkb);
                 }
             }
+            //Hien thi nhung checkbox co the check
             for (int i = 0; i < lsAmenities.Count; i++)
             {
                 for (int j = 0; j < lsCheckBox.Count; j++)
@@ -107,10 +110,21 @@ namespace WSC2017_5A
                     if (lsAmenities[i].Service + " ($" + Decimal.ToInt32(lsAmenities[i].Price) + ")" == lsCheckBox[j].Text)
                     {
                         lsCheckBox[j].Enabled = true;
+
                         break;
                     }
                 }
             }
+            //load amenities da tich tu db
+            for (int i = 0; i < lsAmenitiesTicket.Count; i++)
+            {
+                for (int j = 0; j < lsCheckBox.Count; j++)
+                {
+                    if (lsAmenitiesTicket[i].AmenityID == getAmenityIDByChkbText(lsCheckBox[j].Text))
+                        lsCheckBox[j].Checked = true;
+                }
+            }
+
 
         }
 
@@ -170,7 +184,6 @@ namespace WSC2017_5A
                                     int.Parse(ticketId),
                                     getPrice(chkb.Text)
                                 ));
-
                     }
                 }
                 //chkb.Checked = false;
@@ -178,7 +191,6 @@ namespace WSC2017_5A
         }
         public int getAmenityIDByChkbText(string name)
         {
-
             switch (name)
             {
                 case "Extra Blanket ($10)":
@@ -230,7 +242,6 @@ namespace WSC2017_5A
         private void chkbEBlanket_CheckedChanged(object sender, EventArgs e)
         {
             CheckThenShow();
-
         }
 
         private void chkbTR_CheckedChanged(object sender, EventArgs e)
@@ -270,15 +281,9 @@ namespace WSC2017_5A
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
             DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-            {
                 Environment.Exit(0);
-            }
-
         }
-
-
     }
 }

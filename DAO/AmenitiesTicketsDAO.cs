@@ -22,6 +22,19 @@ namespace DAO
                 return null;
             }
         }
+        public DataTable GetAmenitiesTicketsTableByTicketID(string ticketID)
+        {
+            try
+            {
+                string query = string.Format("SELECT * FROM AmenitiesTickets WHERE TicketID = '{0}'", ticketID);
+                DataTable dt = base.GetTable(query);
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public void AddARow(AmenitiesTicketsDTO amenitiesTicket)
         {
             string sql = "INSERT INTO [dbo].[AmenitiesTickets] VALUES ("
@@ -36,19 +49,7 @@ namespace DAO
             string sql = "DELETE AmenitiesTickets WHERE TicketID = " + TicketID;
             base.ExcuteNonQuery(sql);
         }
-        //public DataTable GetAmenitiesTicketsTableByID(string cabinTypeID)
-        //{
-        //    try
-        //    {
-        //        string query = string.Format("SELECT * FROM AmenitiesTickets WHERE ID = '{0}'", cabinTypeID);
-        //        DataTable dt = base.GetTable(query);
-        //        return dt;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
+        
 
     }
 }

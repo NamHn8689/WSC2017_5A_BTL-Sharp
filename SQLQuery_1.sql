@@ -62,11 +62,15 @@ SELECT * FROM Tickets INNER JOIN CabinTypes ON Tickets.CabinTypeID = CabinTypes.
 SELECT * FROM [Session5].[dbo].[AmenitiesCabinType]
 SELECT * FROM Amenities ORDER BY Price 
 SELECT * FROM AmenitiesCabinType WHERE CabinTypeID =3 
-SELECT * FROM AmenitiesTickets
 SELECT * FROM CabinTypes
 SELECT * FROM [Session5].[dbo].[Tickets] WHERE BookingReference = '12345B' 
 
-INSERT INTO [dbo].[AmenitiesTickets] VALUES (1,9448,50.0000)
+SELECT * FROM AmenitiesTickets
+INSERT INTO [dbo].[AmenitiesTickets] VALUES (1,9448,10)
+INSERT INTO [dbo].[AmenitiesTickets] VALUES (4,9448,12)
+INSERT INTO [dbo].[AmenitiesTickets] VALUES (6,9448,25)
+
+DELETE AmenitiesTickets WHERE TicketID = 9448
 TRUNCATE TABLE AmenitiesTickets
 1 10
 4 12

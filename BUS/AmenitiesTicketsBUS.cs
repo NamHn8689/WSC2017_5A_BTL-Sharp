@@ -31,6 +31,26 @@ namespace BUS
 
             return lsAmenitiesTickets;
         }
+        public List<AmenitiesTicketsDTO> GetListAmenitiesTicketsByTicketID(string ticketID)
+        {
+
+            List<AmenitiesTicketsDTO> lsAmenitiesTickets = new List<AmenitiesTicketsDTO>();
+            DataTable dt = amenitiesTicketsDAO.GetAmenitiesTicketsTableByTicketID(ticketID);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                AmenitiesTicketsDTO obj = new AmenitiesTicketsDTO();
+
+                obj.AmenityID = int.Parse(dr["AmenityID"].ToString());
+                obj.TicketID = int.Parse(dr["TicketID"].ToString());
+                obj.Price = decimal.Parse(dr["Price"].ToString());
+
+                lsAmenitiesTickets.Add(obj);
+            }
+
+            return lsAmenitiesTickets;
+        }
+
         public void AddARow(AmenitiesTicketsDTO amenitiesTicket)
         {
             amenitiesTicketsDAO.AddARow(amenitiesTicket);
