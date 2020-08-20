@@ -27,9 +27,9 @@ namespace WSC2017_5A
             dgvReport.RowHeadersVisible = false;
 
             //txtBookRef.Text = "12345B";
-            //txtFlNumber.Text = "49";
-            //dateTimePickerFrom.Text = "2018-09-04";
-            //dateTimePickerTo.Text = "2018-11-04";
+            txtFlNumber.Text = "49";
+            dateTimePickerFrom.Text = "2018-09-04";
+            dateTimePickerTo.Text = "2018-11-04";
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -44,6 +44,7 @@ namespace WSC2017_5A
             if (lsFlight.Count == 0)
             {
                 btnShow.Enabled = false;
+                cbx.Text = "";
                 MessageBox.Show("We can't find anything" + Environment.NewLine + "Please,check it again", "False", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -96,7 +97,6 @@ namespace WSC2017_5A
 
             List<CheckBox> lsCheckBox = new List<CheckBox>();
 
-            //
 
             foreach (Control control in grbAmenities.Controls)
             {
@@ -111,22 +111,23 @@ namespace WSC2017_5A
                 }
             }
             //Hien thi nhung checkbox co the check
-            for (int i = 0; i < lsAmenities.Count; i++)
-            {
-                for (int j = 0; j < lsCheckBox.Count; j++)
-                {
+            //neu services = lschkb.text
 
-                    if (lsAmenities[i].Service + " (Free)" == lsCheckBox[j].Text)
+           for(int i = 0; i < lsAmenities.Count; i++)
+            {
+                for(int j = 0; j < lsCheckBox.Count; j++)
+                {
+                    if(lsAmenities[i].Service + " (Free)" == lsCheckBox[j].Text)
                     {
-                        lsCheckBox[j].Checked = true;
                         lsCheckBox[j].Enabled = false;
+                        lsCheckBox[j].Checked = true;
                         break;
                     }
-                    if (lsAmenities[i].Service + " ($" + Decimal.ToInt32(lsAmenities[i].Price) + ")" == lsCheckBox[j].Text)
+                    if(lsAmenities[i].Service + " ($" + Decimal.ToInt32(lsAmenities[i].Price)+")" == lsCheckBox[j].Text)
                     {
                         lsCheckBox[j].Enabled = true;
-
                         break;
+
                     }
                 }
             }
@@ -193,6 +194,7 @@ namespace WSC2017_5A
                 AmenitiesTicketsBUS amenitiesTicketsBUS = new AmenitiesTicketsBUS();
 
                 amenitiesTicketsBUS.DeleteRowsByTicketId(ticketId);
+
                 foreach (Control control in grbAmenities.Controls)
                 {
                     if (control is CheckBox)
@@ -217,8 +219,8 @@ namespace WSC2017_5A
                         }
                     }
                 }
-                MessageBox.Show("Data changed", "Aler", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnShow_Click(sender, e);
+                MessageBox.Show("Data changed", "Aler", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         public int getAmenityIDByChkbText(string name)
@@ -324,7 +326,7 @@ namespace WSC2017_5A
             
             try
             {
-                dgvReport.DataSource = reportBUS.GetReportTableWithProc(
+                dgvReport.DataSource = reportBUS.GetReportTable(
                     new ReportDTO(
                         int.Parse(txtFlNumber.Text),
                         dateTimePickerFrom.Text,

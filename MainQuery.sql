@@ -251,30 +251,33 @@ BEGIN
 
 	RETURN
 END
-
+go
 SELECT * FROM [dbo].[F1]()
+go
 
-create view [dbo].V4 AS
-SELECT dbo.CabinTypes.Name, dbo.Schedules.Date, dbo.Schedules.FlightNumber
-FROM     dbo.CabinTypes INNER JOIN
-                  dbo.Schedules ON dbo.CabinTypes.ID = dbo.Schedules.ID INNER JOIN
-                  dbo.Tickets ON dbo.CabinTypes.ID = dbo.Tickets.CabinTypeID AND dbo.Schedules.ID = dbo.Tickets.ScheduleID
-
-alter view [dbo].V3 as
-SELECT F.Amentites, F.ExtraBlanket, F.NextSeatFree, F.TwoNeighboringSeatsFree, F.TabletRental, F.LaptopRental, F.LoungeAccess, F.SoftDrinks, F.PremiumHeadphonesRental, F.ExtraBag, F.FastCheckinLane, F.WiFi50mb, F.WiFi250mb, D.Date, 
-                  D.FlightNumber
-FROM     dbo.F1() AS F INNER JOIN
-                      (SELECT Name, Date, FlightNumber
-                       FROM  dbo.V4
-                       GROUP BY Name, Date, FlightNumber) AS D ON F.Amentites = D.Name
-
-
-alter PROC P1 (@flightNumber INT, @From DATE, @To DATE)
+CREATE PROC P1 (@flightNumber INT, @From DATE, @To DATE)
 AS
 BEGIN
 	SELECT *
-	FROM [dbo].V3
+	FROM V3
 	WHERE FlightNumber = @flightNumber AND Date BETWEEN @From AND @TO
 END
-GO
-EXEC P1 49,'2018/09/04','2018/11/04'
+EXEC P1 49,'2018-09-04','2018-11-04'
+go
+
+CREATE FUNCTION func_GetReportByAmenityIDAndCabinID (@flightNumber nvarchar(10), @amenityID int, @cabinID int, @from date, @to date)
+RETURNS TABLE
+AS
+RETURN SELECT t.CabinTypeID, COUNT(*) AS Total
+	FROM Tickets t LEFT JOIN AmenitiesTickets a
+		ON t.ID = a.TicketID
+	LEFT JOIN AmenitiesCabinType act
+		ON t.CabinTypeID = act.CabinTypeID
+	WHERE ScheduleID in (SELECT ID 
+						 FROM Schedules
+						 WHERE FlightNumber like @flightNumber 
+						 AND Date BETWEEN @from AND @to)
+	AND (a.AmenityID LIKE @amenityID OR act.AmenityID LIKE 7)
+	AND t.CabinTypeID LIKE @cabinID
+	GROUP BY t.CabinTypeID
+go

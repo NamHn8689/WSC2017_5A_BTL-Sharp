@@ -72,6 +72,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
@@ -81,7 +82,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnGetReport = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.grbAmenities.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -593,6 +593,16 @@
             this.tabPage2.Text = "Amenities Report";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(755, 582);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(188, 17);
+            this.label18.TabIndex = 15;
+            this.label18.Text = "49,\'2018/09/04\',\'2018/11/04\'";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
@@ -685,16 +695,6 @@
             this.btnGetReport.Text = "Make Report";
             this.btnGetReport.UseVisualStyleBackColor = true;
             this.btnGetReport.Click += new System.EventHandler(this.btnGetReport_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(792, 560);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(141, 13);
-            this.label18.TabIndex = 15;
-            this.label18.Text = "49,\'2018/09/04\',\'2018/11/04\'";
             // 
             // form
             // 
