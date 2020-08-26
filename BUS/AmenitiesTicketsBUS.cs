@@ -10,7 +10,6 @@ namespace BUS
         AmenitiesTicketsDAO amenitiesTicketsDAO = new AmenitiesTicketsDAO();
         public List<AmenitiesTicketsDTO> GetListAmenitiesTicketsDTO()
         {
-
             List<AmenitiesTicketsDTO> lsAmenitiesTickets = new List<AmenitiesTicketsDTO>();
             DataTable dt = amenitiesTicketsDAO.GetAllAmenitiesTicketsTypesTable();
 

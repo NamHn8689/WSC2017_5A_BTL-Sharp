@@ -41,11 +41,11 @@ namespace DAO
 
                 foreach (DataRow dr in amenitiesTable.Rows)
                     result.Columns.Add(dr["Service"].ToString());
-                //them cac cot (ten amenitie) vao bang
+                //add 12 columns to result table (12 service)
 
                 foreach (DataRow drCabin in cabinTypesTable.Rows)//duyet 3 loai cabin
                 {
-                    DataRow dr;
+                    DataRow dr;//dr of result table (report table)
                     dr = result.NewRow();
                     dr["Name"] = drCabin["Name"].ToString();
 
@@ -57,15 +57,11 @@ namespace DAO
                             drCabin["ID"].ToString(),
                             reportDTO.From,
                             reportDTO.To);
-                        try
-                        {
-                            dr[drAmenity["Service"].ToString()] = dt.Rows[0]["Total"];
-                        }
-                        // if no row exists, set to 0
-                        catch (Exception)
-                        {
-                            dr[drAmenity["Service"].ToString()] = "0";
-                        }
+
+                        String amenityService = drAmenity["Service"].ToString();
+
+                        dr[amenityService] = (dt.Rows.Count != 0) ? dt.Rows[0]["Total"] : "0";
+
                     }
 
                     result.Rows.Add(dr);

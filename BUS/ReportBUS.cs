@@ -15,7 +15,6 @@ namespace BUS
         {
             return reportDAO.GetReportTable2();
         }
-
         public DataTable GetReportTableWithProc(ReportDTO reportDTO)
         {
             return reportDAO.GetReportTableWithProc(reportDTO);

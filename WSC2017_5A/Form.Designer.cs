@@ -72,6 +72,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnExit2 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -82,7 +83,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnGetReport = new System.Windows.Forms.Button();
-            this.btnExit2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grbAmenities.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -595,11 +595,21 @@
             this.tabPage2.Text = "Amenities Report";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnExit2
+            // 
+            this.btnExit2.Location = new System.Drawing.Point(700, 508);
+            this.btnExit2.Name = "btnExit2";
+            this.btnExit2.Size = new System.Drawing.Size(156, 46);
+            this.btnExit2.TabIndex = 16;
+            this.btnExit2.Text = "Exit";
+            this.btnExit2.UseVisualStyleBackColor = true;
+            this.btnExit2.Click += new System.EventHandler(this.btnExit2_Click);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(755, 582);
+            this.label18.Location = new System.Drawing.Point(755, 645);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(188, 17);
             this.label18.TabIndex = 15;
@@ -697,16 +707,6 @@
             this.btnGetReport.Text = "Make Report";
             this.btnGetReport.UseVisualStyleBackColor = true;
             this.btnGetReport.Click += new System.EventHandler(this.btnGetReport_Click);
-            // 
-            // btnExit2
-            // 
-            this.btnExit2.Location = new System.Drawing.Point(700, 508);
-            this.btnExit2.Name = "btnExit2";
-            this.btnExit2.Size = new System.Drawing.Size(156, 46);
-            this.btnExit2.TabIndex = 16;
-            this.btnExit2.Text = "Exit";
-            this.btnExit2.UseVisualStyleBackColor = true;
-            this.btnExit2.Click += new System.EventHandler(this.btnExit2_Click);
             // 
             // form
             // 
