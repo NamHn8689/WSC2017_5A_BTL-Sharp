@@ -82,6 +82,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnGetReport = new System.Windows.Forms.Button();
+            this.btnExit2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grbAmenities.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -581,6 +582,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnExit2);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.dgvReport);
@@ -696,6 +698,16 @@
             this.btnGetReport.UseVisualStyleBackColor = true;
             this.btnGetReport.Click += new System.EventHandler(this.btnGetReport_Click);
             // 
+            // btnExit2
+            // 
+            this.btnExit2.Location = new System.Drawing.Point(700, 508);
+            this.btnExit2.Name = "btnExit2";
+            this.btnExit2.Size = new System.Drawing.Size(156, 46);
+            this.btnExit2.TabIndex = 16;
+            this.btnExit2.Text = "Exit";
+            this.btnExit2.UseVisualStyleBackColor = true;
+            this.btnExit2.Click += new System.EventHandler(this.btnExit2_Click);
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -782,6 +794,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnExit2;
     }
 }
 

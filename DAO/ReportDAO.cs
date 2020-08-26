@@ -1,10 +1,6 @@
 ﻿using DTO;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -36,6 +32,7 @@ namespace DAO
             {
                 AmenitiDAO amenitiDAO = new AmenitiDAO();
                 CabinTypeDAO cabinTypeDAO = new CabinTypeDAO();
+
                 DataTable amenitiesTable = amenitiDAO.GetAllAmenitiesTable();
                 DataTable cabinTypesTable = cabinTypeDAO.GetAllCabinTypesTable();
 
@@ -44,7 +41,7 @@ namespace DAO
 
                 foreach (DataRow dr in amenitiesTable.Rows)
                     result.Columns.Add(dr["Service"].ToString());
-                //them cac cot (ten amnitie) vao bang
+                //them cac cot (ten amenitie) vao bang
 
                 foreach (DataRow drCabin in cabinTypesTable.Rows)//duyet 3 loai cabin
                 {

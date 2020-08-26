@@ -1,21 +1,9 @@
-select * from Tickets
-select * from Schedules
-select * from Aircrafts
-select * from Airports
-select * from Routes
-select * from Amenities
-select * from AmenitiesTickets
-select * from CabinTypes
-select * from AmenitiesCabinType
-
-select * from Tickets where BookingReference like '12345E'
-select * from Schedules where ID like 117
-
-go
+USE [Session5]
+GO
 create proc proc_GetFlightsByBookingReference @bookingReference varchar(6)
 as
 select t.ID as TicketID, FlightNumber, b.IATACode as DepartureIATACode, a.IATACode as ArrivalIATACode, Date, Time
-from Tickets t inner join Schedules s
+FROM Tickets t inner join Schedules s
 	on t.ScheduleID = s.ID
 inner join Routes r
 	on s.RouteID = r.ID
@@ -25,7 +13,7 @@ inner join Airports b
 	on r.DepartureAirportID = b.ID
 where BookingReference like @bookingReference
 
-
+exec proc_GetFlightsByBookingReference '12345B'
 go
 create proc proc_GetAmenitiesByCabinTypeID @cabinTypeID int
 as
@@ -34,13 +22,50 @@ from AmenitiesCabinType inner join Amenities
 	on AmenitiesCabinType.AmenityID = Amenities.ID
 where CabinTypeID like @cabinTypeID
 
-go
+GO
 exec proc_GetAmenitiesByCabinTypeID 3
+GO
 
-exec proc_GetFlightsByBookingReference '12345E'
+
+GO
+ALTER FUNCTION func_GetReportByAmenityIDAndCabinID (@flightNumber nvarchar(10), @amenityID int, @cabinID int, @from date, @to date)
+RETURNS @table TABLE (
+	CabinTypeID int,
+	Total int )
+BEGIN
+	IF EXISTS (SELECT * FROM Amenities WHERE Price = 0 AND ID LIKE @amenityID)
+	BEGIN
+		INSERT @table 
+			SELECT T.CabinTypeID, COUNT(*) AS Total
+			FROM Tickets T LEFT JOIN AmenitiesCabinType A
+				ON T.CabinTypeID = A.CabinTypeID
+			WHERE ScheduleID in (SELECT ID 
+									FROM Schedules
+									WHERE FlightNumber like @flightNumber 
+									AND Date BETWEEN @from AND @to)
+			AND a.AmenityID LIKE @amenityID
+			AND t.CabinTypeID LIKE @cabinID
+			GROUP BY t.CabinTypeID
+		RETURN
+	END
+	INSERT @table 
+		SELECT t.CabinTypeID, COUNT(*) AS Total
+		FROM Tickets t LEFT JOIN AmenitiesTickets a
+			ON t.ID = a.TicketID
+		WHERE ScheduleID in (SELECT ID 
+								FROM Schedules
+								WHERE FlightNumber like @flightNumber 
+								AND Date BETWEEN @from AND @to)
+		AND a.AmenityID LIKE @amenityID
+		AND t.CabinTypeID LIKE @cabinID
+		GROUP BY t.CabinTypeID
+	RETURN
+END
 
 
-/****** Object:  View [dbo].[V1]    Script Date: 8/13/2020 6:42:08 PM ******/
+
+
+--------------------------------------------------------------------------------
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -262,22 +287,5 @@ BEGIN
 	FROM V3
 	WHERE FlightNumber = @flightNumber AND Date BETWEEN @From AND @TO
 END
-EXEC P1 49,'2018-09-04','2018-11-04'
-go
 
-CREATE FUNCTION func_GetReportByAmenityIDAndCabinID (@flightNumber nvarchar(10), @amenityID int, @cabinID int, @from date, @to date)
-RETURNS TABLE
-AS
-RETURN SELECT t.CabinTypeID, COUNT(*) AS Total
-	FROM Tickets t LEFT JOIN AmenitiesTickets a
-		ON t.ID = a.TicketID
-	LEFT JOIN AmenitiesCabinType act
-		ON t.CabinTypeID = act.CabinTypeID
-	WHERE ScheduleID in (SELECT ID 
-						 FROM Schedules
-						 WHERE FlightNumber like @flightNumber 
-						 AND Date BETWEEN @from AND @to)
-	AND (a.AmenityID LIKE @amenityID OR act.AmenityID LIKE 7)
-	AND t.CabinTypeID LIKE @cabinID
-	GROUP BY t.CabinTypeID
-go
+EXEC P1 49,'2018-09-04','2018-11-04'

@@ -2,12 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WSC2017_5A
@@ -113,17 +108,17 @@ namespace WSC2017_5A
             //Hien thi nhung checkbox co the check
             //neu services = lschkb.text
 
-           for(int i = 0; i < lsAmenities.Count; i++)
+            for (int i = 0; i < lsAmenities.Count; i++)
             {
-                for(int j = 0; j < lsCheckBox.Count; j++)
+                for (int j = 0; j < lsCheckBox.Count; j++)
                 {
-                    if(lsAmenities[i].Service + " (Free)" == lsCheckBox[j].Text)
+                    if (lsAmenities[i].Service + " (Free)" == lsCheckBox[j].Text)
                     {
                         lsCheckBox[j].Enabled = false;
                         lsCheckBox[j].Checked = true;
                         break;
                     }
-                    if(lsAmenities[i].Service + " ($" + Decimal.ToInt32(lsAmenities[i].Price)+")" == lsCheckBox[j].Text)
+                    if (lsAmenities[i].Service + " ($" + Decimal.ToInt32(lsAmenities[i].Price) + ")" == lsCheckBox[j].Text)
                     {
                         lsCheckBox[j].Enabled = true;
                         break;
@@ -323,7 +318,7 @@ namespace WSC2017_5A
         private void btnGetReport_Click(object sender, EventArgs e)
         {
             ReportBUS reportBUS = new ReportBUS();
-            
+
             try
             {
                 dgvReport.DataSource = reportBUS.GetReportTable(
@@ -338,6 +333,11 @@ namespace WSC2017_5A
             {
                 MessageBox.Show("Try again", "False", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnExit2_Click(object sender, EventArgs e)
+        {
+            btnExit_Click(sender, e);
         }
     }
 }

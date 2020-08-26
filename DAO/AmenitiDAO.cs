@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -38,7 +34,7 @@ namespace DAO
         {
             try
             {
-                string query = "exec proc_GetAmenitiesByCabinTypeID " + cabinTypeID;
+                string query = "EXEC proc_GetAmenitiesByCabinTypeID " + cabinTypeID;
                 DataTable dt = base.GetTable(query);
 
                 return dt;

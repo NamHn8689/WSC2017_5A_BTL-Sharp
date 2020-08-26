@@ -1,23 +1,12 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DTO
+﻿namespace DTO
 {
     public class FlightDTO
     {
         public int TicketID { get; set; }
         public string FlightNumber { get; set; }
-
         public string DepartureIATACode { get; set; }
-
         public string ArrivalIATACode { get; set; }
-
         public string Date { get; set; }
-
         public string Time { get; set; }
 
         public FlightDTO() { }
