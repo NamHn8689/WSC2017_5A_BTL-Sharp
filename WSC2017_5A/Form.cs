@@ -20,6 +20,7 @@ namespace WSC2017_5A
             grbAmenities.Enabled = false;
             itemChoose = 0;
             dgvReport.RowHeadersVisible = false;
+            groupBox1.Enabled = false;
 
             //txtBookRef.Text = "12345B";
             txtFlNumber.Text = "49";
@@ -38,13 +39,12 @@ namespace WSC2017_5A
             items.Columns.Add("TicketID", typeof(string));
             if (lsFlight.Count == 0)
             {
-                btnShow.Enabled = false;
-                cbx.Text = "";
+                groupBox1.Enabled = false;
                 MessageBox.Show("We can't find anything" + Environment.NewLine + "Please,check it again", "False", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                btnShow.Enabled = true;
+                groupBox1.Enabled = true;
                 foreach (FlightDTO flight in lsFlight)
                 {
                     items.Rows.Add(
@@ -328,6 +328,7 @@ namespace WSC2017_5A
                         dateTimePickerTo.Text
                         )
                     );
+                //MessageBox.Show("Data changed", "Aler", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {

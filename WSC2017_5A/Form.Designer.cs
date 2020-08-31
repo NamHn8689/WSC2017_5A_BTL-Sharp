@@ -597,12 +597,13 @@
             // 
             // btnExit2
             // 
+            this.btnExit2.BackColor = System.Drawing.Color.Red;
             this.btnExit2.Location = new System.Drawing.Point(700, 508);
             this.btnExit2.Name = "btnExit2";
             this.btnExit2.Size = new System.Drawing.Size(156, 46);
             this.btnExit2.TabIndex = 16;
             this.btnExit2.Text = "Exit";
-            this.btnExit2.UseVisualStyleBackColor = true;
+            this.btnExit2.UseVisualStyleBackColor = false;
             this.btnExit2.Click += new System.EventHandler(this.btnExit2_Click);
             // 
             // label18
@@ -718,7 +719,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "form";
-            this.Text = "Purchase Amenities";
+            this.Text = "Amenity Manager";
             this.Load += new System.EventHandler(this.form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

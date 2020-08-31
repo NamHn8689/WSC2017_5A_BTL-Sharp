@@ -6,7 +6,6 @@ namespace DAO
 {
     public class ReportDAO : DBConnect
     {
-
         public DataTable GetReportByAmenityIDAndCabinID(string flightNumber, string amenityID, string cabinID, string dateFrom, string dateTo)
         {
             try
@@ -28,6 +27,11 @@ namespace DAO
         }
         public DataTable GetReportTable(ReportDTO reportDTO)
         {
+
+            //get Amenities table
+            //get Cabintype table
+            //add 12 columns to result table (12 service)
+            //scan 3 cabin type
             try
             {
                 AmenitiDAO amenitiDAO = new AmenitiDAO();
@@ -42,7 +46,7 @@ namespace DAO
                 foreach (DataRow dr in amenitiesTable.Rows)
                     result.Columns.Add(dr["Service"].ToString());
                 //add 12 columns to result table (12 service)
-
+                 
                 foreach (DataRow drCabin in cabinTypesTable.Rows)//duyet 3 loai cabin
                 {
                     DataRow dr;//dr of result table (report table)
